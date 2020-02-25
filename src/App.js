@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
+import Auth from './components/Auth/Auth'
+// import Dashboard from './components/Dashboard/Dashboard'
+// import Post from './components/Post/Post'
+// import Form from './components/Form/Form'
+import Nav from './components/Nav/Nav'
+import routes from './routes'
+import  { withRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './ducks/store'
+
+
 import './App.css';
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.Work please
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+        <div className="App">
+          {props.location.pathname ==='/' 
+          ? (
+              <>
+              <Auth />
+              </>
+            )
+          : (
+              <>
+              <Nav />
+              {routes}
+              </>
+            )}
+        </div>
+    </Provider>
   );
 }
 
-export default App;
+export default withRouter(App);
