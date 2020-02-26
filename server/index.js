@@ -25,7 +25,7 @@ massive({
     }
 }).then(db => {
     app.set('db', db)
-    app.listen(SERVER_PORT || 4020, () => console.log(`Server running on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`))
     console.log("DB Connected")
 })
 

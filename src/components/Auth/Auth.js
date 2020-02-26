@@ -3,6 +3,8 @@ import axios from 'axios'
 import { getUser } from '../../ducks/reducer'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import './Auth.css'
+// import helo_logo.png from '../../../assets/helo_logo'
 
 
 class Auth extends Component {
@@ -45,34 +47,37 @@ class Auth extends Component {
 
     render() {
         return(
-            <div className="auth-component">
-                <h1 className="auth-head">Hello</h1>
-                <div className="auth-ins">
-                    <input 
-                        className="auth-in" 
-                        placeholder="username" 
-                        name="username"
-                        onChange={this.handleInput} />
-                        
-                    <input 
-                        className="auth-in" 
-                        placeholder="password"
-                        name="password"
-                        onChange={(e) => {this.handleInput(e)}} />
+            <div className="auth_component">
+                <div className="inputDiv">
+                    <h1 className="logo">:D</h1>
+                    <h2 className="auth_head">Helo</h2>
+                    <div className="auth_ins">
+                        <input 
+                            className="auth_in" 
+                            placeholder="username" 
+                            name="username"
+                            onChange={this.handleInput} />
+                        <br />
+                        <input 
+                            className="auth_in" 
+                            placeholder="password"
+                            name="password"
+                            onChange={(e) => {this.handleInput(e)}} />
+                    </div>
+                    <br />
+                    <div className="auth_butts">
+                        <button 
+                            className="auth_butt"
+                            onClick={this.handleLogin}>
+                                Login
+                        </button>
+                        <button 
+                            className="auth_butt"
+                            onClick={this.handleRegister}>
+                                Register
+                        </button>
+                    </div> 
                 </div>
-                <br />
-                <div className="auth-butts">
-                    <button 
-                        className="auth-butt"
-                        onClick={this.handleLogin}>
-                            Login
-                    </button>
-                    <button 
-                        className="auth-butt"
-                        onClick={this.handleRegister}>
-                            Register
-                    </button>
-                </div> 
             </div>
             ) 
     }

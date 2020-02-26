@@ -1,0 +1,58 @@
+/* * {
+    margin: 0px;
+    padding: 0px;
+} */
+
+* {
+    background-color: #ff70a6;
+    background-image: linear-gradient(to right ,#ff70a6, #ff9770, #ffd670, #e9ff70);
+    border-radius: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.inputDiv {
+    width: 40vw;
+    height: 70vh;
+    min-height: 400px;
+    margin: 100px auto;
+    box-shadow: 0 14px 28px 0 rgba(0, 0, 0, .26);
+    color: #f2f2f2;
+    background: rgba(242,242,242, 0);
+}
+
+.logo {
+    font-size: 125px;
+    background: rgba(242,242,242, 0);
+}
+
+.auth_head {
+    font-size: 100px;
+    background: rgba(242,242,242, 0);
+}
+
+.auth_ins {
+    background-color: #f2f2f2;
+    color: #f2f2f2;
+    background: rgba(242,242,242, 0);
+}
+
+.auth_in {
+    background: #f2f2f2;
+    border-radius: 0px;
+    height: 20px;
+    width: 150px;
+    font-size: 15px;
+}
+
+.auth_butts {
+    background: rgba(242,242,242, 0);
+}
+
+.auth_butt {
+    background: #403d39;
+    color: #f2f2f2;
+    border-radius: 0px;
+    font-size: 15px;
+    padding: 15px 20px;
+}

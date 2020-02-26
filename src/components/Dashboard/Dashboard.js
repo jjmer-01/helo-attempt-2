@@ -1,28 +1,30 @@
 import React from 'react'
+import './Dashboard.css'
 
 
 
 function Dashboard() {
 
     return(
-        <div className="dashboard-comp">
+        <div className="dashboard_comp">
             Dashboard.js
             <input 
-                className="search-input" 
+                className="search_input" 
                 defaultValue="Search" />
             <button 
-                className="search-butt">
+                className="search_butt">
                 Search
             </button>
             <button 
-                className="reset-butt">
+                className="reset_butt">
                 Reset
             </button>
             <input 
                 className="mypost-check" 
                 name="mypost" 
                 defaultValue="true" 
-                type="checkbox" />
+                type="checkbox"
+                defaultChecked />
             <label 
                 htmlFor="mypost">
                 My Posts

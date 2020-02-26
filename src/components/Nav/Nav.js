@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 // import { getUser } from '../../ducks/reducer'
 // import axios from 'axios'
+import './Nav.css'
 
 const Nav = (props) => {
 
@@ -9,9 +10,9 @@ const Nav = (props) => {
     //     let { username } = this.props
 
         return (
-            <div className="nav-comp">
+            <div className="nav_comp">
                 Nav.js
-                <p>{props.profile_pic}</p>
+                <img src={props.profile_pic} />
                 <p>{props.username}</p>
                 <p>Home link</p>
                 <p>New Post link</p>

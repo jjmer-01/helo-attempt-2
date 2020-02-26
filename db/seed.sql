@@ -12,9 +12,3 @@ CREATE TABLE posts (
     content TEXT,
     author_id INT references users(id)
 )
-
--- INSERT INTO users (username, password, profile_pic)
--- VALUES 
--- ('jess', 'pw', 'https://hottopic.scene7.com/is/image/HotTopic/10798139_hi?$pdp_hero_standard$'), 
--- ('leah', 'pw', 'https://images-na.ssl-images-amazon.com/images/I/41te4jIxCKL._AC_.jpg'), 
--- ('chels', 'pw', 'https://www.writeups.org/wp-content/uploads/Blossom-Powerpuff-Girls-Profile.jpg');
