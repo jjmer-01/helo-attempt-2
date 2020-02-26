@@ -3,6 +3,7 @@ const express = require('express')
     massive = require('massive')
     session = require('express-session')
     ctrl = require('./controller')
+    postCtrl = require('./postController')
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 
 
@@ -25,11 +26,14 @@ massive({
     }
 }).then(db => {
     app.set('db', db)
-    app.listen(SERVER_PORT, () => console.log(`Server running on ${SERVER_PORT}`))
+    app.listen(SERVER_PORT || 4020, () => console.log(`Server running on ${SERVER_PORT}`))
     console.log("DB Connected")
 })
 
 
-//ENDPOINTS
+//ENDPOINTS controller
 app.post('/api/register', ctrl.register)
 app.post('/api/login', ctrl.login)
+
+//ENDPOINTS postController
+app.get('/api/posts', postCtrl.getAllPosts)
