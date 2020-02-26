@@ -9,13 +9,13 @@ const Nav = (props) => {
     //     let { username } = this.props
 
         return (
-            <div>
+            <div className="nav-comp">
                 Nav.js
-                {/* <p>{props.user.profile_pic}</p>
-                <p>{props.user.username}</p>
+                <p>{props.profile_pic}</p>
+                <p>{props.username}</p>
                 <p>Home link</p>
                 <p>New Post link</p>
-                <p>Logout link</p> */}
+                <p>Logout link</p>
             </div> 
         )
     }
@@ -23,10 +23,10 @@ const Nav = (props) => {
 // }
 
 const mapStateToProps = reduxState => {
-    const { username, profile_pic } = reduxState
+    const { username, profile_pic } = reduxState.user
     return {
-        username: "",
-        profile_pic: ""
+        username,
+        profile_pic
     }
 }
 
