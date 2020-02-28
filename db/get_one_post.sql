@@ -1,2 +1,4 @@
 SELECT * FROM posts
-WHERE post_id = ${id};
+JOIN users
+ON users.id = posts.author_id
+WHERE post_id = ${postId};

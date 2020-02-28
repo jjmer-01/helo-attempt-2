@@ -27,10 +27,9 @@ module.exports = {
 
     getOnePost: (req, res) => {
         const dbObj = req.app.get('db')
-        const {id} = req.params
-        const { title, img, content } = req.body
-        dbObj.get_one_post([id, title, img, content])
-        .then(() => res.sendStatus(200))
+        const {postId} = req.params
+        dbObj.get_one_post({postId})
+        .then((singlePost) => res.status(200).send(singlePost[0])) // singlePost passed in to .then is where we're putting the data when we get if from the db
         .catch(err => {
             res.status(500).send({errorMessage:"Couldn't find that post. Try again later"})
             console.log(err)

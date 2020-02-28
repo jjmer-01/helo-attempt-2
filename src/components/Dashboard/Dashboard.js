@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
     render() {
         // const {id, title, img, content, author_id} = this.props.posts
         const displayPosts = this.state.posts.map((element, index) => {
-            console.log(element)
+            // console.log(element)
             return (
                 <Link to={`/dashboard/new/${element.post_id}`}>
                     <div>

@@ -37,7 +37,7 @@ app.post('/api/login', ctrl.login)
 
 //ENDPOINTS postController
 app.get('/api/posts/', postCtrl.getAllPosts)
-app.get('/api/posts/:params', postCtrl.getOnePost)
+app.get('/api/posts/:postId', postCtrl.getOnePost)
 app.post('/api/posts/', postCtrl.addPost)
 app.put('/api/posts/:id', postCtrl.editPost)
 app.delete('/api/posts/:id', postCtrl.deletePost)

@@ -7,11 +7,13 @@ export default class Post extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: this.props.match.id,
-            title: this.props.match.title,
-            img: this.props.match.img,
-            content: this.props.match.content
         }
+        // console.log(this.props)
+        // console.log(this.state)
+    }
+
+    componentDidMount = () => {
+        this.getOnePost()
     }
 
     handleTitle = (e) => {
@@ -32,9 +34,12 @@ export default class Post extends Component {
         })
     }
 
-    getOnePost = (id) => {
-        axios.get(`/api/posts/${id}`, {id})
-        .then(res => this.setState(res.data))
+    getOnePost = () => {
+        axios.get(`/api/posts/${this.props.match.params.postid}`)
+        .then(res => {
+            console.log(res.data)
+            this.setState(res.data)
+        })
     }
 
     editPost = (id, title, img, content) => {
@@ -48,32 +53,39 @@ export default class Post extends Component {
     }
 
     render() {
- console.log(this.props.match.params)
+    //  console.log(this.props.match.params.postid)
+    // console.log(this.state)
         return(
 
             <div className='edit-post'>
+                <h2>{this.state.username}</h2>
+                <img src={this.state.profile_pic} />
                 <label htmlFor="post-title">Title
                     <input 
                     className="post-title"
                     name="post-title"
-                    onChange={this.handleTitle} />
+                    onChange={this.handleTitle}
+                    value={this.state.title} />
                 </label>
+                <img src={this.state.img} />
                 <label htmlFor="post-img">Image
                     <input 
                     className="post-img"
                     name="post-img"
-                    onChange={this.handleImg} />
+                    onChange={this.handleImg}
+                    value={this.state.img} />
                 </label>
                 <label htmlFor="post-content">Content
                     <input 
                     className="post-content"
                     name="post-content"
-                    onChange={this.handleContent} />
+                    onChange={this.handleContent}
+                    value={this.state.content} />
                 </label>
                 <button 
                     className="submit-edit-post"
                     onClick={() => {
-                        this.props.editPost(this.props.getOnePost, this.state.title, this.state.img, this.state.content)
+                        // this.editPost(title, img, content)
                     }}>
                     Submit Changes
                 </button>
