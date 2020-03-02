@@ -1,1 +1,1 @@
-DELETE FROM posts WHERE posts.id = $1;
+DELETE FROM posts WHERE post_id = ${postId};

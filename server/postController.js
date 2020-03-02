@@ -38,10 +38,10 @@ module.exports = {
 
     editPost: (req, res) => {
         const dbObj = req.app.get('db')
-        const {params, query} = req
-        const updatedPost = {id, title, img, content, author_id}
-        dbObj.update_post([params.id, query.desc])
-        .then(() => res.status(200).send(updatedPost))
+        const {postId} = req.params
+        const {title, img, content} = req.body
+        dbObj.update_post({postId, title, img, content})
+        .then((updatedPost) => res.status(200).send(updatedPost[0]))
         .catch(err => {
             res.status(500).send({errorMessage:"Post not updated. Try again later."})
             console.log(err)
@@ -50,12 +50,14 @@ module.exports = {
 
     deletePost: (req, res) => {
         const dbObj = req.app.get('db')
-        const {id} = params
-        dbObj.delete_post(id)
+        const {postId} = req.params
+        // console.dir(postId)
+        dbObj.delete_post({postId})
+        
         .then( () => res.sendStatus(200) )
         .catch( err => {
             res.status(500).send({errorMessage: "Post not deleted. Try again later."})
-            console.log
+            console.log(err)
         })
     },   
 }

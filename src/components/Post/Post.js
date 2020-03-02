@@ -8,8 +8,6 @@ export default class Post extends Component {
         super(props)
         this.state = {
         }
-        // console.log(this.props)
-        // console.log(this.state)
     }
 
     componentDidMount = () => {
@@ -38,23 +36,24 @@ export default class Post extends Component {
         axios.get(`/api/posts/${this.props.match.params.postid}`)
         .then(res => {
             console.log(res.data)
-            this.setState(res.data)
+            this.setState({...res.data})
         })
     }
 
-    editPost = (id, title, img, content) => {
-        axios.put(`/api/posts/${id}`, {title, img, content})
-        .then(res => this.setState(res.data))
+    editPost = () => {
+        axios.put(`/api/posts/${this.state.post_id}`, {title: this.state.title, img: this.state.img, content: this.state.content})
+        .then(() => this.props.history.push('/dashboard/'))
     }
 
-    delete = (id) => {
-        axios.delete(`api/posts/${id}`)
-        .then(res => this.setState(res.data))
+    deletePost = () => {
+        axios.delete(`api/posts/${this.state.post_id}`)
+        .then(res => this.props.history.push('/dashboard/'))
+
     }
+    
 
     render() {
-    //  console.log(this.props.match.params.postid)
-    // console.log(this.state)
+   
         return(
 
             <div className='edit-post'>
@@ -84,14 +83,12 @@ export default class Post extends Component {
                 </label>
                 <button 
                     className="submit-edit-post"
-                    onClick={() => {
-                        // this.editPost(title, img, content)
-                    }}>
+                    onClick={this.editPost}>
                     Submit Changes
                 </button>
                 <button
                     className="delete-post"
-                    onClick={() => this.state.deletePost(this.props.id)}>
+                    onClick={this.deletePost}>
                     Delete Post
                 </button>
             </div>
